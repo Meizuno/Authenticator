@@ -9,7 +9,11 @@ export const getCode = async (id: number) => {
 }
 
 export const addCode = async (code: Code) => {
-  await db.codes.add(code);
+  await db.codes.add({
+    name: code.name,
+    key: code.key,
+    base: code.base
+  });
 };
 
 export const updateCode = async (code: Code) => {
