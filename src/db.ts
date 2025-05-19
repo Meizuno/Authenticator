@@ -15,8 +15,4 @@ db.version(1).stores({
   codes: "++id, name, key, base",
 });
 
-db.open().catch((err) => {
-  console.error("Failed to open DB:", err);
-});
-
 export { db };
