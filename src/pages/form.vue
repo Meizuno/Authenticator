@@ -24,7 +24,7 @@
       </UFormField>
     </div>
 
-    <UButton type="submit" class="w-full"> Submit </UButton>
+    <UButton type="submit" class="w-full justify-center"> Add </UButton>
   </UForm>
 </template>
 

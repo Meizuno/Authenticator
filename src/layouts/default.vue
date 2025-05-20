@@ -1,10 +1,10 @@
 <template>
   <div class="h-dvh grid grid-rows-[auto_1fr]">
-    <div class="p-4 shadow-lg">
+    <div class="p-4 shadow-lg relative">
       <UButton
         v-if="route.name !== 'index'"
         icon="i-material-symbols:arrow-back-ios"
-        class="float-left gap-0 text-md"
+        class="absolute top-4 left-4 gap-0 text-md"
         label="Back"
         variant="ghost"
         @click="router.back()"
