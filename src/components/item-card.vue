@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between space-x-4 w-full">
+  <div class="flex items-center justify-between space-x-4 px-2 w-full">
     <div class="flex flex-col">
       <span class="font-bold">{{ code.name }}</span>
       <span class="text-3xl text-primary">{{ generated }}</span>
