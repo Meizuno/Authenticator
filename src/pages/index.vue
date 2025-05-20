@@ -10,8 +10,15 @@
 
 <script setup lang="ts">
 const codes = await getCodes();
-const { start } = useOTPState();
-start();
+const { start, stop } = useOTPState();
+
+onMounted(() => {
+  start();
+});
+
+onBeforeUnmount(() => {
+  stop()
+});
 
 const search = ref("");
 const searchCodes = computed(() => {

@@ -30,6 +30,8 @@ export const useOTPState = () => {
   const index = 3;
   const step = 100;
 
+  const intervalId = ref<NodeJS.Timeout>();
+
   const { expires } = TOTP.generate("");
   const timer = useState("timer", () => expires - Date.now());
   const switcher = useState("switcher", () => true);
@@ -38,13 +40,21 @@ export const useOTPState = () => {
   });
 
   const start = () => {
-    setInterval(() => {
+    timer.value = getExpiration();
+    intervalId.value = setInterval(() => {
       timer.value -= step;
       if (timer.value < 0) {
         switcher.value = !switcher.value;
         timer.value = getExpiration();
       }
     }, step);
+  };
+
+  const stop = () => {
+    if (intervalId.value) {
+      clearInterval(intervalId.value);
+      intervalId.value = undefined;
+    }
   };
 
   const getExpiration = () => {
@@ -65,6 +75,7 @@ export const useOTPState = () => {
     seconds,
 
     start,
+    stop,
     generate,
     getExpiration,
   };

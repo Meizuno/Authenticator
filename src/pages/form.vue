@@ -53,5 +53,6 @@ const state = ref({
 
 const onSubmit = async () => {
   await addCode(state.value);
+  navigateTo("/");
 };
 </script>
