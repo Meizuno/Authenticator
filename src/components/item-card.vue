@@ -5,7 +5,7 @@
   >
     <div class="flex items-center space-x-4">
       <div class="flex items-center space-x-2 h-full">
-        <TimerIcon :key="key" class="size-12" :start="seconds" />
+        <TimerIcon :key="key" class="size-10" :start="seconds" />
       </div>
       <div class="flex flex-col">
         <span class="font-bold">{{ code.name }}</span>
