@@ -5,8 +5,7 @@
       <span class="text-3xl text-primary">{{ generated }}</span>
     </div>
     <div class="flex items-center space-x-2 h-full">
-      <TimerIcon v-if="customIcon" class="size-12" :start="seconds" />
-      <TimerIcon v-else class="size-12"/>
+      <TimerIcon :key="key" class="size-12" :start="seconds" />
     </div>
   </div>
 </template>
@@ -18,13 +17,17 @@ const props = defineProps<{
   code: Code;
 }>();
 
-const customIcon = ref(true);
+const key = ref(1);
 const { generate, switcher, seconds } = useOTPState();
 const generated = ref(generate(props.code.key));
 
 watch(switcher, () => {
-  customIcon.value = false;
+  key.value++;
   generated.value = generate(props.code.key);
+});
+
+onMounted(() => {
+  key.value++;
 });
 
 </script>
