@@ -26,9 +26,9 @@
     >
       <animate
         attributeName="stroke-dashoffset"
-        :from="fromStart"
+        :from="from"
         to="0"
-        :dur="`${duration}s`"
+        :dur="`${dur}s`"
         repeatCount="indefinite"
         fill="freeze"
       />
@@ -41,27 +41,20 @@
       dominant-baseline="middle"
       fill="var(--color-primary)"
     >
-      {{time}}s
+      {{ seconds }}s
     </text>
   </svg>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({ shift: { type: Number, default: 0 } });
 
-const duration = 30;
+const props = defineProps({
+  start: { type: Number, default: 0 }
+})
+
+const { duration, seconds } = useOTPState();
 const circleLength = 250;
-const fromStart = computed(() => {
-  return circleLength - (circleLength / duration) * props.shift;
-});
-const time = ref(duration - props.shift);
-const updateTime = () => {
-  if (time.value > 1) {
-    time.value -= 1;
-  } else {
-    time.value = duration;
-  }
-};
-setInterval(updateTime, 1000)
+const dur = props.start ? props.start : duration;
+const from = ref(Math.floor((circleLength / duration) * dur));
 
 </script>
