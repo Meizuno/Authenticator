@@ -1,5 +1,3 @@
-import { db, type Code } from "~/db";
-
 export const useCodeState = () => {
   const codes = useState("codes", () => [] as Code[]);
 
@@ -29,6 +27,7 @@ export const useCodeState = () => {
 
   const deleteCode = async (id: number) => {
     await db.codes.delete(id);
+    codes.value = codes.value.filter((code) => code.id !== id);
   };
 
   return { codes, getCodes, getCode, addCode, updateCode, deleteCode };
