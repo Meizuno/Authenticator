@@ -59,6 +59,9 @@ const items: DropdownMenuItem[][] = [
     {
       label: "Edit",
       icon: "i-lucide-pencil",
+      onSelect: () => {
+        navigateTo(`/form/${props.code.id}`);
+      },
     },
   ],
   [
