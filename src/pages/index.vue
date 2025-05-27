@@ -25,10 +25,10 @@ const search = ref("");
 const searchCodes = computed(() => {
   return codes.value.filter((code) => {
     const searchTerm = search.value.toLowerCase();
-    return (
-      code.account.toLowerCase().includes(searchTerm) ||
-      code.service.toLowerCase().includes(searchTerm)
-    );
+    const account = code.account?.toLowerCase() || "";
+    const service = code.service?.toLowerCase() || "";
+    return account.includes(searchTerm) || service.includes(searchTerm);
   });
 });
+
 </script>
