@@ -1,6 +1,17 @@
 <template>
   <div class="space-y-8">
-    <UInput v-model="search" placeholder="Search..." size="xl" class="w-full" />
+    <UInput v-model="search" placeholder="Search..." size="xl" class="w-full">
+      <template v-if="search?.length" #trailing>
+        <UButton
+          color="neutral"
+          variant="link"
+          size="sm"
+          icon="i-lucide-circle-x"
+          aria-label="Clear input"
+          @click="search = ''"
+        />
+      </template>
+    </UInput>
     <div v-for="code in searchCodes" :key="code.id" class="space-y-4">
       <ItemCard :code="code" />
       <USeparator />
@@ -30,5 +41,4 @@ const searchCodes = computed(() => {
     return account.includes(searchTerm) || service.includes(searchTerm);
   });
 });
-
 </script>
