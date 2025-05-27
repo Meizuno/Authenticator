@@ -7,15 +7,11 @@
   >
     <div class="space-y-4">
       <UFormField label="Account name" name="account">
-        <UInput v-model="model.account" class="w-full" />
+        <UInput v-model="model.account" />
       </UFormField>
 
       <UFormField label="Secret key" name="key">
-        <UInput
-          v-model="model.key"
-          :type="show ? 'text' : 'password'"
-          class="w-full"
-        >
+        <UInput v-model="model.key" :type="show ? 'text' : 'password'">
           <template #trailing>
             <UButton
               color="neutral"
@@ -32,12 +28,7 @@
       </UFormField>
 
       <UFormField label="Key Type" name="key-type">
-        <USelect
-          v-model="model.base"
-          :items="items"
-          :search-input="false"
-          class="w-full"
-        />
+        <USelect v-model="model.base" :items="items" :search-input="false" />
       </UFormField>
     </div>
 

@@ -28,7 +28,6 @@
         variant="solid"
         class="rounded-full"
         size="xl"
-        :ui="{}"
       />
 
       <template #content>
