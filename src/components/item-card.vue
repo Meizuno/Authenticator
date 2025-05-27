@@ -1,9 +1,6 @@
 <template>
-  <div
-    class="flex items-center justify-between space-x-4 px-2 w-full"
-    @click="copyToClipboard"
-  >
-    <div class="flex items-center space-x-4">
+  <div class="flex items-center justify-between space-x-4 px-2 w-full">
+    <div class="grow flex items-center space-x-4" @click="copyToClipboard">
       <div class="flex items-center space-x-2 h-full">
         <TimerIcon :key="key" class="size-10" :start="seconds" />
       </div>
@@ -30,7 +27,7 @@ const generated = ref(generate(props.code.key));
 
 const codeColor = computed(() => {
   return seconds.value > 5 ? "text-primary" : "text-error";
-})
+});
 
 watch(switcher, () => {
   key.value++;
