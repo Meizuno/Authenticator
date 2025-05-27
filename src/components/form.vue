@@ -6,11 +6,11 @@
     @submit="onSubmit"
   >
     <div class="space-y-4">
-      <UFormField label="Name" name="name">
-        <UInput v-model="model.name" class="w-full" />
+      <UFormField label="Account name" name="account">
+        <UInput v-model="model.account" class="w-full" />
       </UFormField>
 
-      <UFormField label="Key" name="key">
+      <UFormField label="Secret key" name="key">
         <UInput
           v-model="model.key"
           :type="show ? 'text' : 'password'"
@@ -55,9 +55,13 @@ const show = ref(false);
 
 const BaseEnum = ["Time based", "Counter based"] as const;
 const schema = z.object({
-  name: z.string().min(1),
-  key: z.string()
-    .regex(/^[A-Z2-7=]+$/, "Wrong key format"),
+  account: z.string().min(1),
+  key: z
+    .string()
+    .regex(/^[A-Z2-7=]+$/, "Wrong key format")
+    .min(16, "Wrong key format")
+    .max(32, "Wrong key format")
+    .refine((val) => val.length % 8 === 0, "Wrong key format"),
   base: z.enum(BaseEnum),
 });
 

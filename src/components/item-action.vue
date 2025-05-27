@@ -30,7 +30,7 @@ const copyToClipboard = async () => {
 const items: DropdownMenuItem[][] = [
   [
     {
-      label: "QR Code",
+      label: "Share",
       icon: "i-lucide-qr-code",
       onSelect: () => {
         openQRCode.value = true;

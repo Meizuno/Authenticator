@@ -8,8 +8,11 @@
         <TimerIcon :key="key" class="size-10" :start="seconds" />
       </div>
       <div class="flex flex-col">
-        <span class="font-bold">{{ code.name }}</span>
-        <span class="text-3xl text-primary">{{ generated }}</span>
+        <div class="font-bold flex gap-1">
+          <span v-if="code.service">{{ code.service }}:</span>
+          <span>{{ code.account }}</span>
+        </div>
+        <span class="text-3xl" :class="codeColor">{{ generated }}</span>
       </div>
     </div>
     <ItemAction :code="code" />
@@ -24,6 +27,10 @@ const props = defineProps<{
 const key = ref(1);
 const { generate, switcher, seconds } = useOTPState();
 const generated = ref(generate(props.code.key));
+
+const codeColor = computed(() => {
+  return seconds.value > 5 ? "text-primary" : "text-error";
+})
 
 watch(switcher, () => {
   key.value++;

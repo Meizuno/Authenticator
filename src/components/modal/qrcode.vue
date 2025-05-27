@@ -21,7 +21,6 @@ const props = defineProps<{
 }>();
 
 const qrCodeUrl = ref("");
-const otpUrl = `otpauth://totp/${props.code.name}:${props.code.key}?secret=${props.code.key}&issuer=${props.code.name}`;
+const otpUrl = `otpauth://totp/${props.code.service}:${props.code.account}?secret=${props.code.key}&issuer=${props.code.service}`;
 qrCodeUrl.value = await QRCode.toDataURL(otpUrl);
-
 </script>

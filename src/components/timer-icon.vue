@@ -8,7 +8,7 @@
       cx="50"
       cy="50"
       r="40"
-      stroke="var(--color-primary)"
+      :stroke="colorIcon"
       stroke-width="10"
       fill="none"
       stroke-dashoffset="0"
@@ -39,7 +39,7 @@
       font-size="24"
       text-anchor="middle"
       dominant-baseline="middle"
-      fill="var(--color-primary)"
+      :fill="colorIcon"
     >
       {{ seconds }}s
     </text>
@@ -47,14 +47,16 @@
 </template>
 
 <script setup lang="ts">
-
 const props = defineProps({
-  start: { type: Number, default: 0 }
-})
+  start: { type: Number, default: 0 },
+});
 
 const { duration, seconds } = useOTPState();
 const circleLength = 250;
 const dur = props.start ? props.start : duration;
 const from = ref(Math.floor((circleLength / duration) * dur));
 
+const colorIcon = computed(() => {
+  return seconds.value > 5 ? "var(--color-primary)" : "var(--color-error)";
+});
 </script>

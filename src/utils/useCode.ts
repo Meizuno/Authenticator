@@ -11,7 +11,8 @@ export const useCodeState = () => {
 
   const addCode = async (code: Code) => {
     await db.codes.add({
-      name: code.name,
+      service: code.service,
+      account: code.account,
       key: code.key,
       base: code.base,
     });
@@ -19,7 +20,8 @@ export const useCodeState = () => {
 
   const updateCode = async (id: number, code: Code) => {
     await db.codes.update(id, {
-      name: code.name,
+      service: code.service,
+      account: code.account,
       key: code.key,
       base: code.base,
     });

@@ -9,7 +9,6 @@
 </template>
 
 <script setup lang="ts">
-
 const { getCodes, codes } = useCodeState();
 await getCodes();
 const { start, stop } = useOTPState();
@@ -19,13 +18,17 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  stop()
+  stop();
 });
 
 const search = ref("");
 const searchCodes = computed(() => {
   return codes.value.filter((code) => {
-    return code.name.toLowerCase().includes(search.value.toLowerCase());
+    const searchTerm = search.value.toLowerCase();
+    return (
+      code.account.toLowerCase().includes(searchTerm) ||
+      code.service.toLowerCase().includes(searchTerm)
+    );
   });
-})
+});
 </script>

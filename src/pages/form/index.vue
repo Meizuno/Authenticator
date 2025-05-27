@@ -3,12 +3,7 @@
 </template>
 
 <script setup lang="ts">
-
-const state = ref({
-  name: "",
-  key: "",
-  base: "Time based",
-} as Code);
+const state = ref({ base: "Time based" } as Code);
 
 const { addCode } = useCodeState();
 
