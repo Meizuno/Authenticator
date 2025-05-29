@@ -44,7 +44,7 @@ const emit = defineEmits(["submit"]);
 
 const show = ref(false);
 
-const BaseEnum = ["Time based", "Counter based"] as const;
+const BaseEnum = ["Time based"] as const; // TODO "Counter based"
 const schema = z.object({
   account: z.string().min(1),
   key: z
