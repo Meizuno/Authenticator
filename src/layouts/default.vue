@@ -46,6 +46,7 @@
             variant="outline"
             label="Skan a QR code"
             class="flex justify-between gap-4 text-lg"
+            @click="router.push('/scan')"
           />
         </UButtonGroup>
       </template>
