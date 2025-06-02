@@ -38,15 +38,7 @@ onMounted(() => {
   key.value++;
 });
 
-const toast = useToast();
 const copyToClipboard = async () => {
-  await navigator.clipboard.writeText(generated.value.replace(" ", ""));
-  toast.add({
-    title: "Copied to clipboard",
-    color: "success",
-    icon: "i-lucide-check",
-    progress: false,
-    close: false,
-  });
+  await useClipboard(generated.value.replace(" ", ""));
 };
 </script>

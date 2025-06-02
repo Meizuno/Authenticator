@@ -24,7 +24,7 @@ const openConfirm = ref(false);
 
 const copyToClipboard = async () => {
   const generated = generate(props.code.key);
-  await navigator.clipboard.writeText(generated.replace(" ", ""));
+  await useClipboard(generated.replace(" ", ""));
 };
 
 const items: DropdownMenuItem[][] = [
