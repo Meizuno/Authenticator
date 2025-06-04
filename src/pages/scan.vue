@@ -25,19 +25,9 @@ const parseCode = (code: string) => {
     return;
   }
 
-  console.log("URL:", url);
-
   const path = url.pathname.slice(1);
   const [serviceName, accountName] = path.split(":");
   const secretKey = url.searchParams.get("secret");
-
-  if (serviceName && accountName && secretKey) {
-    console.log("Service Name:", serviceName);
-    console.log("Account Name:", accountName);
-    console.log("Secret Key:", secretKey);
-  } else {
-    console.error("Invalid OTP URL format");
-  }
 
   return {
     service: serviceName === "undefined" ? undefined : serviceName,
