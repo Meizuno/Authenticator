@@ -3,12 +3,12 @@
     class="h-dvh grid grid-rows-[auto_1fr] relative"
     :class="safePadding"
   >
-    <header class="p-4 shadow-lg relative">
+    <header class="py-4 shadow-lg relative">
       <UContainer class="relative">
         <UButton
           v-if="route.name !== 'index'"
           icon="i-material-symbols:arrow-back-ios"
-          class="absolute left-4 gap-0 text-md"
+          class="absolute -top-1 gap-0 text-md"
           label="Back"
           variant="ghost"
           @click="router.back()"
