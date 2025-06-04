@@ -1,5 +1,8 @@
 <template>
-  <div class="h-dvh grid grid-rows-[auto_1fr]" :class="safePadding">
+  <UContainer
+    class="h-dvh grid grid-rows-[auto_1fr] relative"
+    :class="safePadding"
+  >
     <div class="p-4 shadow-lg relative">
       <UButton
         v-if="route.name !== 'index'"
@@ -21,7 +24,7 @@
         side: 'top',
         sideOffset: 5,
       }"
-      class="fixed bottom-8 right-8"
+      class="absolute bottom-8 right-8"
     >
       <UButton
         icon="i-heroicons-plus"
@@ -51,13 +54,13 @@
         </UButtonGroup>
       </template>
     </UPopover>
-  </div>
+  </UContainer>
 </template>
 
 <script setup lang="ts">
-import { Capacitor } from '@capacitor/core';
+import { Capacitor } from "@capacitor/core";
 
-const safePadding = ref("")
+const safePadding = ref("");
 
 if (Capacitor.getPlatform() === "ios") {
   safePadding.value = "pt-12 pb-2";
