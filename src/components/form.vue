@@ -26,10 +26,6 @@
           </template>
         </UInput>
       </UFormField>
-
-      <UFormField label="Key Type" name="key-type">
-        <USelect v-model="model.base" :items="items" :search-input="false" />
-      </UFormField>
     </div>
 
     <UButton type="submit" class="w-full justify-center"> Submit </UButton>
@@ -43,8 +39,6 @@ const model = defineModel<Code>({ required: true });
 const emit = defineEmits(["submit"]);
 
 const show = ref(false);
-
-const BaseEnum = ["Time based"] as const; // TODO "Counter based"
 const schema = z.object({
   account: z.string().min(1),
   key: z
@@ -53,13 +47,7 @@ const schema = z.object({
     .min(16, "Wrong key format")
     .max(32, "Wrong key format")
     .refine((val) => val.length % 8 === 0, "Wrong key format"),
-  base: z.enum(BaseEnum),
 });
-
-const items = BaseEnum.map((item) => ({
-  label: item,
-  value: item,
-}));
 
 const onSubmit = async () => {
   emit("submit", model.value);

@@ -30,7 +30,6 @@ const parseCode = (code: string) => {
   const path = url.pathname.slice(1);
   const [serviceName, accountName] = path.split(":");
   const secretKey = url.searchParams.get("secret");
-  const base = url.hostname === "totp" ? "Time based" : "Counter based";
 
   if (serviceName && accountName && secretKey) {
     console.log("Service Name:", serviceName);
@@ -44,7 +43,6 @@ const parseCode = (code: string) => {
     service: serviceName === "undefined" ? undefined : serviceName,
     account: accountName,
     key: secretKey,
-    base: base,
   } as Code;
 };
 

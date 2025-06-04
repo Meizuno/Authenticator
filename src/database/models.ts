@@ -5,7 +5,6 @@ export interface Code {
   service: string;
   account: string;
   key: string;
-  base: 'Time based' | 'Counter based';
 }
 
 const db = new Dexie("CodesDatabase") as Dexie & {
@@ -13,7 +12,7 @@ const db = new Dexie("CodesDatabase") as Dexie & {
 };
 
 db.version(1).stores({
-  codes: "++id, service, account, key, base",
+  codes: "++id, service, account, key",
 });
 
 export { db };

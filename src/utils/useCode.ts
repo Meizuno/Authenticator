@@ -14,7 +14,6 @@ export const useCodeState = () => {
       service: code.service,
       account: code.account,
       key: code.key,
-      base: code.base,
     });
   };
 
@@ -23,7 +22,6 @@ export const useCodeState = () => {
       service: code.service,
       account: code.account,
       key: code.key,
-      base: code.base,
     });
   };
 

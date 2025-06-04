@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-const state = ref({ base: "Time based" } as Code);
+const state = ref({} as Code);
 
 const { addCode } = useCodeState();
 
