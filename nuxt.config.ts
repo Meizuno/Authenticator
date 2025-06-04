@@ -4,9 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
   srcDir: "src/",
+
   modules: ["@nuxt/eslint", "@nuxt/ui"],
   css: ["~/assets/css/main.css"],
   imports: {
     dirs: ["database"],
   },
+
+  app: {
+    buildAssetsDir: "Authenticator/_nuxt",
+  }
 });
