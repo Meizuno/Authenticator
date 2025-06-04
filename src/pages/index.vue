@@ -20,6 +20,8 @@
 </template>
 
 <script setup lang="ts">
+import { App } from '@capacitor/app';
+
 const { getCodes, codes } = useCodeState();
 await getCodes();
 const { start, stop } = useOTPState();
@@ -40,5 +42,13 @@ const searchCodes = computed(() => {
     const service = code.service?.toLowerCase() || "";
     return account.includes(searchTerm) || service.includes(searchTerm);
   });
+});
+
+App.addListener('pause', () => {
+  stop();
+});
+
+App.addListener('resume', () => {
+  start();
 });
 </script>

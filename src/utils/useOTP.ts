@@ -9,7 +9,6 @@ export const useOTPState = () => {
 
   const { expires } = TOTP.generate("");
   const timer = useState("timer", () => expires - Date.now());
-  const switcher = useState("switcher", () => true);
   const seconds = computed(() => {
     return Math.ceil(timer.value / 1000);
   });
@@ -19,7 +18,6 @@ export const useOTPState = () => {
     intervalId.value = setInterval(() => {
       timer.value -= step;
       if (timer.value < 0) {
-        switcher.value = !switcher.value;
         timer.value = getExpiration();
       }
     }, step);
@@ -46,7 +44,6 @@ export const useOTPState = () => {
     duration,
     timer,
     step,
-    switcher,
     seconds,
 
     start,
