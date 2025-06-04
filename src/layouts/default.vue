@@ -1,60 +1,64 @@
 <template>
-  <UContainer
+  <div
     class="h-dvh grid grid-rows-[auto_1fr] relative"
     :class="safePadding"
   >
-    <div class="p-4 shadow-lg relative">
-      <UButton
-        v-if="route.name !== 'index'"
-        icon="i-material-symbols:arrow-back-ios"
-        class="absolute top-4 left-4 gap-0 text-md"
-        label="Back"
-        variant="ghost"
-        @click="router.back()"
-      />
-      <h1 class="text-xl text-center">Authenticator</h1>
-    </div>
-    <div class="p-4 my-4">
+    <header class="p-4 shadow-lg relative">
+      <UContainer class="relative">
+        <UButton
+          v-if="route.name !== 'index'"
+          icon="i-material-symbols:arrow-back-ios"
+          class="absolute left-4 gap-0 text-md"
+          label="Back"
+          variant="ghost"
+          @click="router.back()"
+        />
+        <h1 class="text-xl text-center">Authenticator</h1>
+      </UContainer>
+    </header>
+    <UContainer as="main" class="p-4 my-4">
       <slot />
-    </div>
-    <UPopover
-      v-if="route.name === 'index'"
-      :content="{
-        align: 'end',
-        side: 'top',
-        sideOffset: 5,
-      }"
-      class="absolute bottom-8 right-8"
-    >
-      <UButton
-        icon="i-heroicons-plus"
-        variant="solid"
-        class="rounded-full"
-        size="xl"
-      />
+    </UContainer>
+    <UContainer as="nav" class="relative">
+      <UPopover
+        v-if="route.name === 'index'"
+        :content="{
+          align: 'end',
+          side: 'top',
+          sideOffset: 5,
+        }"
+        class="absolute bottom-8 right-8"
+      >
+        <UButton
+          icon="i-heroicons-plus"
+          variant="solid"
+          class="rounded-full"
+          size="xl"
+        />
 
-      <template #content>
-        <UButtonGroup orientation="vertical">
-          <UButton
-            trailing-icon="i-heroicons-key"
-            color="neutral"
-            variant="outline"
-            label="Enter a setup key"
-            class="flex justify-between gap-4 text-lg"
-            @click="router.push('/form')"
-          />
-          <UButton
-            trailing-icon="i-heroicons-qr-code"
-            color="neutral"
-            variant="outline"
-            label="Skan a QR code"
-            class="flex justify-between gap-4 text-lg"
-            @click="router.push('/scan')"
-          />
-        </UButtonGroup>
-      </template>
-    </UPopover>
-  </UContainer>
+        <template #content>
+          <UButtonGroup orientation="vertical">
+            <UButton
+              trailing-icon="i-heroicons-key"
+              color="neutral"
+              variant="outline"
+              label="Enter a setup key"
+              class="flex justify-between gap-4 text-lg"
+              @click="router.push('/form')"
+            />
+            <UButton
+              trailing-icon="i-heroicons-qr-code"
+              color="neutral"
+              variant="outline"
+              label="Skan a QR code"
+              class="flex justify-between gap-4 text-lg"
+              @click="router.push('/scan')"
+            />
+          </UButtonGroup>
+        </template>
+      </UPopover>
+    </UContainer>
+  </div>
 </template>
 
 <script setup lang="ts">
