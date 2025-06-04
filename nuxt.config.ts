@@ -10,8 +10,4 @@ export default defineNuxtConfig({
   imports: {
     dirs: ["database"],
   },
-
-  app: {
-    baseURL: '/Authenticator/'
-  }
 });

@@ -40,6 +40,11 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Config base url
+        run: |
+          export NUXT_APP_BASE_URL=/${GITHUB_REPOSITORY#*/}
+          echo "NUXT_APP_BASE_URL is set to $NUXT_APP_BASE_URL"
+
       - name: Static HTML export with Nuxt
         run: yarn generate
 
