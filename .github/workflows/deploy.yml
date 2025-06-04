@@ -41,12 +41,12 @@ jobs:
         run: yarn install
 
       - name: Config base url
-        run: |
-          export NUXT_APP_BASE_URL=/${GITHUB_REPOSITORY#*/}/
-          echo $NUXT_APP_BASE_URL
+        run: export NUXT_APP_BASE_URL=/${GITHUB_REPOSITORY#*/}/
 
       - name: Static HTML export with Nuxt
-        run: yarn generate
+        run: |
+          echo $NUXT_APP_BASE_URL
+          yarn generate
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
