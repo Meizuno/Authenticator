@@ -10,7 +10,10 @@
           variant="ghost"
           @click="router.back()"
         />
-        <h1 class="text-xl text-center">Authenticator</h1>
+        <div class="flex items-center justify-center gap-2">
+          <img src="/favicon.ico" alt="Favicon" class="size-5" >
+          <h1 class="text-xl text-center">Authenticator</h1>
+        </div>
       </UContainer>
     </header>
     <UContainer as="main" class="p-4 my-4">
@@ -34,7 +37,11 @@
         />
 
         <template #content>
-          <UNavigationMenu orientation="vertical" :items="items" class="text-xl" />
+          <UNavigationMenu
+            orientation="vertical"
+            :items="items"
+            class="text-xl"
+          />
         </template>
       </UPopover>
     </UContainer>
