@@ -1,6 +1,6 @@
 <template>
   <div class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden" :class="safePadding">
-    <header class="py-4 shadow-lg relative">
+    <header class="py-4 relative">
       <UContainer class="relative">
         <UButton
           v-if="route.name !== 'index'"
