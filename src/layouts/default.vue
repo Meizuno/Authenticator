@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="h-dvh grid grid-rows-[auto_1fr] relative"
-    :class="safePadding"
-  >
+  <div class="h-dvh grid grid-rows-[auto_1fr] relative" :class="safePadding">
     <header class="py-4 shadow-lg relative">
       <UContainer class="relative">
         <UButton
@@ -19,7 +16,7 @@
     <UContainer as="main" class="p-4 my-4">
       <slot />
     </UContainer>
-    <UContainer as="nav" class="relative">
+    <UContainer class="relative">
       <UPopover
         v-if="route.name === 'index'"
         :content="{
@@ -37,24 +34,7 @@
         />
 
         <template #content>
-          <UButtonGroup orientation="vertical">
-            <UButton
-              trailing-icon="i-heroicons-key"
-              color="neutral"
-              variant="outline"
-              label="Enter a setup key"
-              class="flex justify-between gap-4 text-lg"
-              @click="router.push('/form')"
-            />
-            <UButton
-              trailing-icon="i-heroicons-qr-code"
-              color="neutral"
-              variant="outline"
-              label="Skan a QR code"
-              class="flex justify-between gap-4 text-lg"
-              @click="router.push('/scan')"
-            />
-          </UButtonGroup>
+          <UNavigationMenu orientation="vertical" :items="items" class="text-xl" />
         </template>
       </UPopover>
     </UContainer>
@@ -62,6 +42,7 @@
 </template>
 
 <script setup lang="ts">
+import type { NavigationMenuItem } from "@nuxt/ui";
 import { Capacitor } from "@capacitor/core";
 
 const safePadding = ref("");
@@ -72,4 +53,17 @@ if (Capacitor.getPlatform() === "ios") {
 
 const router = useRouter();
 const route = useRoute();
+
+const items = ref<NavigationMenuItem[]>([
+  {
+    label: "Enter a setup key",
+    icon: "i-heroicons-key",
+    to: "/form",
+  },
+  {
+    label: "Skan a QR code",
+    icon: "i-heroicons-qr-code",
+    to: "/scan",
+  },
+]);
 </script>

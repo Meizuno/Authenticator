@@ -14,5 +14,11 @@ export default defineAppConfig({
         base: "w-full",
       },
     },
+    navigationMenu: {
+      slots: {
+        link: "text-xl gap-2",
+        linkLeadingIcon: "size-6"
+      },
+    }
   },
 });
