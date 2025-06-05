@@ -1,5 +1,8 @@
 <template>
-  <div class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden" :class="safePadding">
+  <div
+    class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden"
+    :class="safePadding"
+  >
     <header class="py-4 relative">
       <UContainer class="relative">
         <UButton
@@ -11,7 +14,7 @@
           @click="router.back()"
         />
         <div class="flex items-center justify-center gap-2">
-          <img src="/favicon.ico" alt="Favicon" class="size-5" >
+          <img src="/favicon.ico" alt="Favicon" class="size-5">
           <div class="text-xl font-bold text-center">Authenticator</div>
         </div>
       </UContainer>
@@ -56,7 +59,7 @@ import { Capacitor } from "@capacitor/core";
 const safePadding = ref("");
 
 if (Capacitor.getPlatform() === "ios") {
-  safePadding.value = "pt-12 pb-2";
+  safePadding.value = "pt-12 pb-8";
 }
 
 const router = useRouter();
