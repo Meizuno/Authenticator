@@ -1,5 +1,5 @@
 <template>
-  <div class="h-dvh grid grid-rows-[auto_1fr] relative" :class="safePadding">
+  <div class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden" :class="safePadding">
     <header class="py-4 shadow-lg relative">
       <UContainer class="relative">
         <UButton
@@ -12,14 +12,14 @@
         />
         <div class="flex items-center justify-center gap-2">
           <img src="/favicon.ico" alt="Favicon" class="size-5" >
-          <h1 class="text-xl text-center">Authenticator</h1>
+          <div class="text-xl font-bold text-center">Authenticator</div>
         </div>
       </UContainer>
     </header>
-    <UContainer as="main" class="p-4 my-4">
+    <UContainer as="main" class="px-4 overflow-y-auto">
       <slot />
     </UContainer>
-    <UContainer class="relative">
+    <UContainer class="fixed">
       <UPopover
         v-if="route.name === 'index'"
         :content="{
@@ -27,13 +27,14 @@
           side: 'top',
           sideOffset: 5,
         }"
-        class="absolute bottom-6 right-6"
+        class="fixed bottom-6 right-6"
       >
         <UButton
           icon="i-heroicons-plus"
           variant="solid"
           class="rounded-full"
           size="xl"
+          :ui="{ leadingIcon: 'size-9' }"
         />
 
         <template #content>

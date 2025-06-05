@@ -1,17 +1,25 @@
 <template>
   <div class="space-y-8">
-    <UInput v-model="search" placeholder="Search..." size="xl" class="w-full">
-      <template v-if="search?.length" #trailing>
-        <UButton
-          color="neutral"
-          variant="link"
-          size="sm"
-          icon="i-lucide-circle-x"
-          aria-label="Clear input"
-          @click="search = ''"
-        />
-      </template>
-    </UInput>
+    <div class="sticky top-0 py-2 bg-[var(--ui-bg)]">
+      <UInput
+        v-model="search"
+        placeholder="Search..."
+        size="xl"
+        variant="soft"
+        :ui="{ base: 'p-3 text-md rounded-2xl' }"
+      >
+        <template v-if="search?.length" #trailing>
+          <UButton
+            color="neutral"
+            variant="link"
+            size="sm"
+            icon="i-lucide-circle-x"
+            aria-label="Clear input"
+            @click="search = ''"
+          />
+        </template>
+      </UInput>
+    </div>
     <div v-for="code in searchCodes" :key="code.id" class="space-y-4">
       <ItemCard :code="code" />
       <USeparator />
@@ -20,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { App } from '@capacitor/app';
+import { App } from "@capacitor/app";
 
 const { getCodes, codes } = useCodeState();
 await getCodes();
@@ -44,11 +52,11 @@ const searchCodes = computed(() => {
   });
 });
 
-App.addListener('pause', () => {
+App.addListener("pause", () => {
   stop();
 });
 
-App.addListener('resume', () => {
+App.addListener("resume", () => {
   start();
 });
 </script>

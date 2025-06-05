@@ -22,7 +22,7 @@ export default defineAppConfig({
     },
     toast: {
       slots: {
-        root: "rounded-2xl w-24 mx-auto text-center",
+        root: "rounded-2xl w-24 mx-auto text-center mb-6 p-3",
       },
     }
   },
