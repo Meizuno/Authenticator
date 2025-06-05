@@ -19,6 +19,11 @@ export default defineAppConfig({
         link: "text-xl gap-2",
         linkLeadingIcon: "size-6"
       },
+    },
+    toast: {
+      slots: {
+        root: "rounded-2xl w-24 mx-auto text-center",
+      },
     }
   },
 });

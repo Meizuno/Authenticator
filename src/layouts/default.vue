@@ -24,7 +24,7 @@
           side: 'top',
           sideOffset: 5,
         }"
-        class="absolute bottom-8 right-8"
+        class="absolute bottom-6 right-6"
       >
         <UButton
           icon="i-heroicons-plus"

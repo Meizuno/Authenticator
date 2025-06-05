@@ -3,8 +3,7 @@ export const useClipboard = async (message: string) => {
   await navigator.clipboard.writeText(message);
   toast.clear();
   toast.add({
-    title: "Copied to clipboard",
-    color: "success",
+    title: "Copied!",
     progress: false,
     close: false,
   });
