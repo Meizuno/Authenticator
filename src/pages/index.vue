@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-8">
-    <div class="sticky top-0 py-2 bg-[var(--ui-bg)]">
+    <div class="sticky top-0 py-2 bg-[var(--ui-bg)] z-50">
       <UInput
         v-model="search"
         placeholder="Search..."
