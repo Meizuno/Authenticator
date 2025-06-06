@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden"
+    class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden pb-6"
     :class="safePadding"
   >
     <header class="py-4 relative">
