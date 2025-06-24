@@ -1,7 +1,6 @@
 <template>
   <div
-    class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden pb-6"
-    :class="safePadding"
+    class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden pb-[var(--ion-safe-area-bottom)] pt-[var(--ion-safe-area-top)]"
   >
     <header class="py-4 relative">
       <UContainer class="relative">
@@ -14,7 +13,7 @@
           @click="router.back()"
         />
         <div class="flex items-center justify-center gap-2">
-          <img src="/favicon.ico" alt="Favicon" class="size-5">
+          <img src="assets/logo.ico" alt="Favicon" class="size-5" >
           <div class="text-xl font-bold text-center">Authenticator</div>
         </div>
       </UContainer>
@@ -54,13 +53,18 @@
 
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
-import { Capacitor } from "@capacitor/core";
+import { SafeArea } from "capacitor-plugin-safe-area";
 
-const safePadding = ref("");
-
-if (Capacitor.getPlatform() === "ios") {
-  safePadding.value = "pt-12 pb-8";
-}
+SafeArea.getSafeAreaInsets().then((data) => {
+  const { insets } = data;
+  document.body.style.setProperty("--ion-safe-area-top", `${insets.top}px`);
+  document.body.style.setProperty("--ion-safe-area-right", `${insets.right}px`);
+  document.body.style.setProperty(
+    "--ion-safe-area-bottom",
+    `${insets.bottom}px`
+  );
+  document.body.style.setProperty("--ion-safe-area-left", `${insets.left}px`);
+});
 
 const router = useRouter();
 const route = useRoute();
