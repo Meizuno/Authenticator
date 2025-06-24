@@ -253,6 +253,11 @@
     "@babel/helper-string-parser" "^7.27.1"
     "@babel/helper-validator-identifier" "^7.27.1"
 
+"@capacitor/android@^7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-7.4.0.tgz#f0d31b155b898b56895b55559e47e0b584ebacec"
+  integrity sha512-HVCQsnUobviGt/MR5qCfXsfkSyZ5gjJVW6Jbn0CI5NHhsvUkBtazGjaMjdt5JueIz1pfKXpiuZc/njfRHwjx6Q==
+
 "@capacitor/app@^7.0.1":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@capacitor/app/-/app-7.0.1.tgz#0d0709fb4dde5046c24853f2d6b77a7ea411f748"
@@ -281,17 +286,17 @@
     tslib "^2.8.1"
     xml2js "^0.6.2"
 
-"@capacitor/core@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-7.2.0.tgz#fdd1c5d2fbfa257887ce6065f66151a51f0e6d1b"
-  integrity sha512-2zCnA6RJeZ9ec4470o8QMZEQTWpekw9FNoqm5TLc10jeCrhvHVI8MPgxdZVc3mOdFlyieYu4AS1fNxSqbS57Pw==
+"@capacitor/core@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-7.4.0.tgz#19524c8a741e73dd247aa66329e446f211e95fd4"
+  integrity sha512-P6NnjoHyobZgTjynlZSn27d0SUj6j38inlNxFnKZr9qwU7/r6+0Sg2nWkGkIH/pMmXHsvGD8zVe6KUq1UncIjA==
   dependencies:
     tslib "^2.1.0"
 
-"@capacitor/ios@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-7.2.0.tgz#c3d9435582e5267b57085229e5678d1d53b15b5a"
-  integrity sha512-MQgRZcXZpbpjN83bjkGrzQd7s3XeHBZplmWf38/msF/siMGJKLrXNmNzmmPIWA5Xpi/aH6UoJFk1wXuU2U+zMg==
+"@capacitor/ios@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-7.4.0.tgz#23b6395ca4b4d50cc710eb6a4c81ec9a8a29ec68"
+  integrity sha512-xajNljo39eu0+Bw3eVnnMc73VRzWkp0m55S3dqJJOaT2GjqoWl1x0PrnnhYcDMp0X8aDPDBL8oz+XFpMjQiM1Q==
 
 "@capsizecss/metrics@^3.5.0":
   version "3.5.0"
