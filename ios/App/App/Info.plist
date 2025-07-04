@@ -47,5 +47,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>For scan QR code need access to camera</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
 </dict>
 </plist>
