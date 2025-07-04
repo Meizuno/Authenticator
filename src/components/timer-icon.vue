@@ -47,13 +47,9 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  start: { type: Number, default: 0 },
-});
-
 const { duration, seconds } = useOTPState();
 const circleLength = 250;
-const dur = props.start ? props.start : duration;
+const dur = seconds.value < 30 ? seconds.value : duration;
 const from = ref(Math.floor((circleLength / duration) * dur));
 
 const colorIcon = computed(() => {

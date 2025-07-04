@@ -5,3 +5,24 @@
     </NuxtLayout>
   </UApp>
 </template>
+
+<script setup lang="ts">
+import { App } from "@capacitor/app";
+const { start, stop } = useOTPState();
+
+onMounted(() => {
+  start();
+});
+
+onBeforeUnmount(() => {
+  stop();
+});
+
+App.addListener("pause", () => {
+  stop();
+});
+
+App.addListener("resume", () => {
+  start();
+});
+</script>

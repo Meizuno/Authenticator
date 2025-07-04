@@ -2,7 +2,7 @@
   <div class="flex items-center justify-between px-2 w-full">
     <div class="grow flex items-center space-x-4" @click="copyToClipboard">
       <div class="flex items-center space-x-2 h-full">
-        <TimerIcon :key="key" class="size-10" :start="seconds" />
+        <TimerIcon :key="key" class="size-10" />
       </div>
       <div class="flex flex-col">
         <div class="font-bold flex gap-1">
@@ -45,5 +45,9 @@ const copyToClipboard = async () => {
 App.addListener("resume", () => {
   key.value++;
   generated.value = generate(props.code.key);
+});
+
+onMounted(() => {
+  key.value++;
 });
 </script>
