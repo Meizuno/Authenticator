@@ -2,7 +2,7 @@
   <div
     class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden pb-[var(--ion-safe-area-bottom)] pt-[var(--ion-safe-area-top)]"
   >
-    <header class="py-4 relative space-y-8">
+    <header class="py-4 relative space-y-4">
       <UContainer class="relative">
         <UButton
           v-if="$route.name !== 'index'"
@@ -23,7 +23,6 @@
           placeholder="Search..."
           size="xl"
           variant="soft"
-          class="sticky top-0 z-50 bg-[var(--ui-bg)]"
           :ui="{ base: 'p-3 text-md rounded-2xl' }"
         >
           <template v-if="search?.length" #trailing>
