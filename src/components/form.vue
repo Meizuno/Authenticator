@@ -37,6 +37,7 @@ import { z } from "zod";
 
 const model = defineModel<Code>({ required: true });
 const emit = defineEmits(["submit"]);
+const { getCodes } = useCodeState();
 
 const show = ref(false);
 const schema = z.object({
@@ -51,5 +52,6 @@ const schema = z.object({
 
 const onSubmit = async () => {
   emit("submit", model.value);
+  await getCodes();
 };
 </script>

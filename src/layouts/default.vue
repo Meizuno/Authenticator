@@ -38,7 +38,7 @@
         </UInput>
       </UContainer>
     </header>
-    <UContainer as="main" class="px-4 overflow-y-auto">
+    <UContainer as="main" class="px-4 overflow-y-auto overflow-x-hidden">
       <slot />
     </UContainer>
     <UContainer class="fixed">
