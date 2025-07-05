@@ -24,6 +24,7 @@ export const useCodeState = () => {
       account: code.account,
       key: code.key,
     });
+    codes.value.push(code);
   };
 
   const updateCode = async (id: number, code: Code) => {
@@ -32,6 +33,7 @@ export const useCodeState = () => {
       account: code.account,
       key: code.key,
     });
+    codes.value = codes.value.map((c) => (c.id === id ? code : c));
   };
 
   const deleteCode = async (id: number) => {
