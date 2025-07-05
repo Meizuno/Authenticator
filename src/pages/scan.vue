@@ -47,18 +47,16 @@ const onDetect = (detectedCodes: Array<{ rawValue: string }>) => {
 };
 
 const onError = (err: Error) => {
-  error.value = `[${err.name}]: `;
-
   if (err.name === "NotAllowedError") {
-    error.value += "you need to grant camera access permission";
+    error.value += "You need to grant camera access permission";
   } else if (err.name === "NotFoundError") {
-    error.value += "no camera on this device";
+    error.value += "No camera on this device";
   } else if (err.name === "NotSupportedError") {
-    error.value += "secure context required (HTTPS, localhost)";
+    error.value += "Secure context required (HTTPS, localhost)";
   } else if (err.name === "NotReadableError") {
-    error.value += "is the camera already in use?";
+    error.value += "Is the camera already in use?";
   } else if (err.name === "OverconstrainedError") {
-    error.value += "installed cameras are not suitable";
+    error.value += "Installed cameras are not suitable";
   } else if (err.name === "StreamApiNotSupportedError") {
     error.value += "Stream API is not supported in this browser";
   } else if (err.name === "InsecureContextError") {
