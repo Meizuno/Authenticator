@@ -1,44 +1,12 @@
 <template>
-  <div class="space-y-8">
-    <UInput
-      v-model="search"
-      placeholder="Search..."
-      size="xl"
-      variant="soft"
-      class="sticky top-0 z-50 bg-[var(--ui-bg)]"
-      :ui="{ base: 'p-3 text-md rounded-2xl' }"
-    >
-      <template v-if="search?.length" #trailing>
-        <UButton
-          color="neutral"
-          variant="link"
-          size="sm"
-          icon="i-lucide-circle-x"
-          aria-label="Clear input"
-          @click="search = ''"
-        />
-      </template>
-    </UInput>
-    <template v-if="searchCodes.length">
-      <div v-for="code in searchCodes" :key="code.id" class="space-y-4">
-        <ItemCard :code="code" />
-        <USeparator />
-      </div>
-    </template>
+  <div v-if="searchCodes.length" class="space-y-4">
+    <div v-for="code in searchCodes" :key="code.id" class="space-y-4">
+      <ItemCard :code="code" />
+      <USeparator />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const { getCodes, codes } = useCodeState();
-await getCodes();
-
-const search = ref("");
-const searchCodes = computed(() => {
-  return codes.value.filter((code) => {
-    const searchTerm = search.value.toLowerCase();
-    const account = code.account?.toLowerCase() || "";
-    const service = code.service?.toLowerCase() || "";
-    return account.includes(searchTerm) || service.includes(searchTerm);
-  });
-});
+const { searchCodes } = useCodeState();
 </script>

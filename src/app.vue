@@ -25,4 +25,7 @@ App.addListener("pause", () => {
 App.addListener("resume", () => {
   start();
 });
+
+const { getCodes } = useCodeState();
+await getCodes();
 </script>

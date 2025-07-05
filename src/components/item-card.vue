@@ -46,8 +46,4 @@ App.addListener("resume", () => {
   key.value++;
   generated.value = generate(props.code.key);
 });
-
-onMounted(() => {
-  key.value++;
-});
 </script>

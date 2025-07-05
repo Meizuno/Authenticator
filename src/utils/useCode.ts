@@ -1,6 +1,15 @@
-export const useCodeState = () => {
-  const codes = useState("codes", () => [] as Code[]);
+const codes = ref([] as Code[]);
+const search = ref("");
+const searchCodes = computed(() => {
+  const lowerSearch = search.value.toLowerCase();
+  return codes.value.filter(
+    (code) =>
+      code.service?.toLowerCase().includes(lowerSearch) ||
+      code.account?.toLowerCase().includes(lowerSearch)
+  );
+});
 
+export const useCodeState = () => {
   const getCodes = async () => {
     codes.value = await db.codes.toArray();
   };
@@ -30,5 +39,13 @@ export const useCodeState = () => {
     codes.value = codes.value.filter((code) => code.id !== id);
   };
 
-  return { codes, getCodes, getCode, addCode, updateCode, deleteCode };
+  return {
+    searchCodes,
+    search,
+    getCodes,
+    getCode,
+    addCode,
+    updateCode,
+    deleteCode,
+  };
 };

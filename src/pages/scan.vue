@@ -38,7 +38,6 @@ const parseCode = (code: string) => {
 
 const onDetect = (detectedCodes: Array<{ rawValue: string }>) => {
   const code = detectedCodes[0].rawValue;
-  console.log(code);
   const codeData = parseCode(code);
 
   if (codeData) {
@@ -68,8 +67,6 @@ const onError = (err: Error) => {
   } else {
     error.value += err.message;
   }
-
-  console.error(err);
 };
 
 const defaultConstraintOptions = [
