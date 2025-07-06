@@ -13,7 +13,7 @@
           @click="$router.back()"
         />
         <div class="flex items-center justify-center gap-2">
-          <img src="assets/logo.ico" alt="Favicon" class="size-5" />
+          <img src="assets/logo.ico" alt="Favicon" class="size-5" >
           <div class="text-xl font-bold text-center">Authenticator</div>
         </div>
       </div>
