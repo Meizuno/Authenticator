@@ -1,12 +1,12 @@
 <template>
   <div class="flex items-center justify-between px-2 gap-4 max-w-full">
-    <TimerIcon :key="key" class="size-10 flex-none" />
+    <TimerIcon :key="key" class="size-10" />
     <div class="flex-1 flex flex-col overflow-hidden" @click="copyToClipboard">
       <span class="font-bold truncate">{{ name }}</span>
       <span class="text-3xl" :class="codeColor">{{ generated }}</span>
     </div>
 
-    <ItemAction :code="code" class="flex-none" />
+    <ItemAction :code="code" />
   </div>
 </template>
 

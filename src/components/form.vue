@@ -10,7 +10,7 @@
         <UInput v-model="model.account" />
       </UFormField>
 
-      <UFormField label="Secret key" name="key">
+      <UFormField v-if="!isUpdate" label="Secret key" name="key">
         <UInput v-model="model.key" :type="show ? 'text' : 'password'">
           <template #trailing>
             <UButton
@@ -38,6 +38,7 @@ import { z } from "zod";
 const model = defineModel<Code>({ required: true });
 const emit = defineEmits(["submit"]);
 
+const isUpdate = Boolean(model.value.id);
 const show = ref(false);
 const schema = z.object({
   account: z.string().min(1),
