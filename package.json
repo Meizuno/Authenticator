@@ -8,8 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "ios:build": "yarn generate && npx cap add ios",
-    "ios:run": "npx cap open ios"
+    "ios:build": "yarn generate && npx cap sync ios && npx cap open ios",
+    "android:build": "yarn generate && npx cap sync android && npx cap open android"
   },
   "dependencies": {
     "@capacitor/android": "^7.4.0",
