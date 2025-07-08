@@ -1,9 +1,9 @@
 <template>
-  <UContainer
+  <div
     class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden pb-[var(--ion-safe-area-bottom)] pt-[var(--ion-safe-area-top)]"
   >
-    <header class="py-4 relative space-y-4">
-      <div class="relative">
+    <header class="py-4 relative space-y-4 bg-elevated shadow-lg dark:shadow-black/50">
+      <UContainer class="relative">
         <UButton
           v-if="$route.name !== 'index'"
           icon="i-material-symbols:arrow-back-ios"
@@ -16,61 +16,15 @@
           <img src="assets/logo.ico" alt="Favicon" class="size-5" >
           <div class="text-xl font-bold text-center">Authenticator</div>
         </div>
-      </div>
-      <div v-if="$route.name === 'index'" as="div">
-        <UInput
-          v-model="search"
-          placeholder="Search..."
-          size="xl"
-          variant="soft"
-          :ui="{ base: 'p-3 text-md rounded-2xl' }"
-        >
-          <template v-if="search?.length" #trailing>
-            <UButton
-              color="neutral"
-              variant="link"
-              size="sm"
-              icon="i-lucide-circle-x"
-              aria-label="Clear input"
-              @click="search = ''"
-            />
-          </template>
-        </UInput>
-      </div>
+      </UContainer>
     </header>
-    <main class="px-4 overflow-y-auto overflow-x-hidden">
+    <UContainer as="main" class="overflow-y-auto overflow-x-hidden py-2">
       <slot />
-    </main>
-    <UPopover
-      v-if="$route.name === 'index'"
-      :content="{
-        align: 'end',
-        side: 'top',
-        sideOffset: 5,
-      }"
-      class="absolute bottom-6 right-6"
-    >
-      <UButton
-        icon="i-heroicons-plus"
-        variant="solid"
-        class="rounded-full"
-        size="xl"
-        :ui="{ leadingIcon: 'size-9' }"
-      />
-
-      <template #content>
-        <UNavigationMenu
-          orientation="vertical"
-          :items="items"
-          class="text-xl"
-        />
-      </template>
-    </UPopover>
-  </UContainer>
+    </UContainer>
+  </div>
 </template>
 
 <script setup lang="ts">
-import type { NavigationMenuItem } from "@nuxt/ui";
 import { SafeArea } from "capacitor-plugin-safe-area";
 
 SafeArea.getSafeAreaInsets().then((data) => {
@@ -83,18 +37,4 @@ SafeArea.getSafeAreaInsets().then((data) => {
   );
   document.body.style.setProperty("--ion-safe-area-left", `${insets.left}px`);
 });
-
-const { search } = useCodeState();
-const items = ref<NavigationMenuItem[]>([
-  {
-    label: "Enter a setup key",
-    icon: "i-heroicons-key",
-    to: "/form",
-  },
-  {
-    label: "Skan a QR code",
-    icon: "i-heroicons-qr-code",
-    to: "/scan",
-  },
-]);
 </script>

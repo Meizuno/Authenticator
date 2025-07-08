@@ -16,14 +16,35 @@ export default defineAppConfig({
     },
     navigationMenu: {
       slots: {
-        link: "text-xl gap-2",
-        linkLeadingIcon: "size-6"
+        root: "bg-elevated rounded-full px-2 py-3 shadow-lg shadow-black/20 dark:shadow-black/50",
+        link: "flex flex-col gap-0",
+        linkLabel: "text-2xs",
+      },
+      variants: {
+        orientation: {
+          horizontal: {
+            list: "rounded divide-x divide-neutral-200 dark:divide-neutral-700",
+            item: "py-0",
+            link: 'px-2 py-0',
+          },
+        },
+        active: {
+          false: {
+            link: "text-primary",
+            linkLeadingIcon: "text-primary",
+          },
+        },
       },
     },
     toast: {
       slots: {
-        root: "rounded-2xl w-24 mx-auto text-center mb-6 p-3",
+        root: "rounded-full w-24 mx-auto text-center mb-5 p-3",
       },
-    }
+    },
+    popover: {
+      slots: {
+        content: "w-full rounded-2xl overflow-hidden",
+      },
+    },
   },
 });

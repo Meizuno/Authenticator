@@ -1,5 +1,12 @@
 <template>
-  <UDropdownMenu :items="items">
+  <UDropdownMenu
+    :items="items"
+    :content="{
+      align: 'end',
+      side: 'bottom',
+      sideOffset: 7,
+    }"
+  >
     <UButton
       color="neutral"
       variant="ghost"
