@@ -2,7 +2,7 @@
   <div
     class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden pb-[var(--ion-safe-area-bottom)] pt-[var(--ion-safe-area-top)]"
   >
-    <header class="py-4 relative space-y-4 bg-elevated shadow-lg dark:shadow-black/50">
+    <header class="py-4 relative space-y-4 shadow-md dark:shadow-black/50">
       <UContainer class="relative">
         <UButton
           v-if="$route.name !== 'index'"
@@ -16,9 +16,16 @@
           <img src="assets/logo.ico" alt="Favicon" class="size-5" >
           <div class="text-xl font-bold text-center">Authenticator</div>
         </div>
+        <UButton
+          :icon="isDark ? 'i-lucide-sun': 'i-lucide-moon'"
+          color="neutral"
+          variant="ghost"
+          class="absolute -top-0.5 right-5 gap-0 text-md"
+          @click="isDark = !isDark"
+        />
       </UContainer>
     </header>
-    <UContainer as="main" class="overflow-y-auto overflow-x-hidden py-2">
+    <UContainer as="main" class="overflow-y-auto overflow-x-hidden py-4">
       <slot />
     </UContainer>
   </div>
@@ -36,5 +43,15 @@ SafeArea.getSafeAreaInsets().then((data) => {
     `${insets.bottom}px`
   );
   document.body.style.setProperty("--ion-safe-area-left", `${insets.left}px`);
+});
+
+const colorMode = useColorMode();
+const isDark = computed({
+  get() {
+    return colorMode.value === "dark";
+  },
+  set(_isDark) {
+    colorMode.preference = _isDark ? "dark" : "light";
+  },
 });
 </script>

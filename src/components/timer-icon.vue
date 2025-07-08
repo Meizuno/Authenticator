@@ -29,8 +29,7 @@
         :from="from"
         to="0"
         :dur="`${dur}s`"
-        repeatCount="indefinite"
-        fill="freeze"
+        repeatCount="1"
       />
     </circle>
     <text
@@ -47,6 +46,7 @@
 </template>
 
 <script setup lang="ts">
+
 const { duration, seconds } = useOTPState();
 const circleLength = 250;
 const dur = seconds.value < 30 ? seconds.value : duration;

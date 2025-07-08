@@ -10,6 +10,7 @@
     <UButton
       color="neutral"
       variant="ghost"
+      size="xl"
       icon="i-lucide-ellipsis-vertical"
     />
   </UDropdownMenu>

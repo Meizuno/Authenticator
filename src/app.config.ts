@@ -16,7 +16,7 @@ export default defineAppConfig({
     },
     navigationMenu: {
       slots: {
-        root: "bg-elevated rounded-full px-2 py-3 shadow-lg shadow-black/20 dark:shadow-black/50",
+        root: " bg-gray-50 dark:bg-elevated rounded-full px-2 py-3 shadow-md shadow-black/20 dark:shadow-black/50",
         link: "flex flex-col gap-0",
         linkLabel: "text-2xs",
       },
@@ -25,7 +25,7 @@ export default defineAppConfig({
           horizontal: {
             list: "rounded divide-x divide-neutral-200 dark:divide-neutral-700",
             item: "py-0",
-            link: 'px-2 py-0',
+            link: "px-2 py-0",
           },
         },
         active: {
@@ -38,7 +38,7 @@ export default defineAppConfig({
     },
     toast: {
       slots: {
-        root: "rounded-full w-24 mx-auto text-center mb-5 p-3",
+        root: "rounded-full w-24 mx-auto text-center mt-24 p-3",
       },
     },
     popover: {

@@ -1,13 +1,4 @@
 const codes = ref([] as Code[]);
-const search = ref("");
-const searchCodes = computed(() => {
-  const lowerSearch = search.value.toLowerCase();
-  return codes.value.filter(
-    (code) =>
-      code.service?.toLowerCase().includes(lowerSearch) ||
-      code.account?.toLowerCase().includes(lowerSearch)
-  );
-});
 
 export const useCodeState = () => {
   const getCodes = async () => {
@@ -42,8 +33,7 @@ export const useCodeState = () => {
   };
 
   return {
-    searchCodes,
-    search,
+    codes,
     getCodes,
     getCode,
     addCode,
