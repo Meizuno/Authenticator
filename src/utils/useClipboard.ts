@@ -6,5 +6,6 @@ export const useClipboard = async (message: string) => {
     title: "Copied!",
     progress: false,
     close: false,
+    class: "mt-safe",
   });
 };

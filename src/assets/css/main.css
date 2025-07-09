@@ -4,3 +4,7 @@
 @theme {
   --text-2xs: 0.625rem; 
 }
+
+.mt-safe {
+  margin-top: calc(var(--ion-safe-area-top) + 3rem) ;
+}

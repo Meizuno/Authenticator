@@ -38,7 +38,7 @@ export default defineAppConfig({
     },
     toast: {
       slots: {
-        root: "rounded-full w-24 mx-auto text-center mt-24 p-3",
+        root: "rounded-full w-24 mx-auto text-center p-3",
       },
     },
     popover: {
