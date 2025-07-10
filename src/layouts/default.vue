@@ -1,57 +1,63 @@
 <template>
-  <div
-    class="h-svh grid grid-rows-[auto_1fr] relative overflow-hidden pb-[var(--ion-safe-area-bottom)] pt-[var(--ion-safe-area-top)]"
+  <UContainer
+    class="h-svh relative flex flex-col overflow-hidden px-0 pb-[var(--ion-safe-area-bottom)] pt-[var(--ion-safe-area-top)]"
   >
-    <header class="py-4 relative space-y-4 shadow-md dark:shadow-black/50">
-      <UContainer class="relative">
-        <UButton
-          v-if="$route.name !== 'index'"
-          icon="i-material-symbols:arrow-back-ios"
-          class="absolute -top-1 gap-0 text-md"
-          label="Back"
-          variant="ghost"
-          @click="$router.back()"
-        />
-        <div class="flex items-center justify-center gap-2">
-          <img src="assets/logo.ico" alt="Favicon" class="size-5" >
-          <div class="text-xl font-bold text-center">Authenticator</div>
-        </div>
-        <UButton
-          :icon="isDark ? 'i-lucide-sun': 'i-lucide-moon'"
-          color="neutral"
-          variant="ghost"
-          class="absolute -top-0.5 right-5 gap-0 text-md"
-          @click="isDark = !isDark"
-        />
-      </UContainer>
+    <header class="min-h-1">
+      <span class="hidden">Authenticator</span>
     </header>
-    <UContainer as="main" class="overflow-y-auto overflow-x-hidden py-4">
-      <slot />
-    </UContainer>
-  </div>
+    <main class="flex-1 relative flex flex-col overflow-auto px-4">
+      <div class="flex-1 flex flex-col gap-2">
+        <slot />
+        <div class="sticky bottom-0 flex justify-between items-center">
+          <div>
+            <UButton
+              icon="i-iconamoon-arrow-left-2"
+              size="xl"
+              class="glass rounded-full p-2.5"
+              :ui="{
+                leadingIcon: 'size-8 text-default',
+              }"
+              to="/"
+            />
+          </div>
+          <UNavigationMenu :items="items" />
+        </div>
+      </div>
+    </main>
+  </UContainer>
 </template>
 
 <script setup lang="ts">
 import { SafeArea } from "capacitor-plugin-safe-area";
+import type { NavigationMenuItem } from "@nuxt/ui";
 
 SafeArea.getSafeAreaInsets().then((data) => {
   const { insets } = data;
-  document.body.style.setProperty("--ion-safe-area-top", `${insets.top}px`);
-  document.body.style.setProperty("--ion-safe-area-right", `${insets.right}px`);
+  document.body.style.setProperty(
+    "--ion-safe-area-top",
+    `${insets.top / 16 || 1}rem`
+  );
   document.body.style.setProperty(
     "--ion-safe-area-bottom",
-    `${insets.bottom}px`
+    `${insets.bottom / 16 || 1}rem`
   );
-  document.body.style.setProperty("--ion-safe-area-left", `${insets.left}px`);
 });
 
-const colorMode = useColorMode();
-const isDark = computed({
-  get() {
-    return colorMode.value === "dark";
+const items = ref<NavigationMenuItem[]>([
+  {
+    label: "OTP",
+    icon: "i-lets-icons-time-progress",
+    to: "/",
   },
-  set(_isDark) {
-    colorMode.preference = _isDark ? "dark" : "light";
+  {
+    label: "Enter key",
+    icon: "i-heroicons-key",
+    to: "/form",
   },
-});
+  {
+    label: "Scan code",
+    icon: "i-heroicons-qr-code",
+    to: "/scan",
+  },
+]);
 </script>

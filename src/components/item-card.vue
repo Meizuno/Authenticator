@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between px-2 gap-4 max-w-full">
+  <div class="flex items-center justify-between p-2 gap-4 max-w-full">
     <TimerIcon :key="key" class="size-10" />
     <div class="flex-1 flex flex-col overflow-hidden" @click="copyToClipboard">
       <span class="font-bold truncate">{{ name }}</span>

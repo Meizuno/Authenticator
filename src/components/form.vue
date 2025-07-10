@@ -2,33 +2,31 @@
   <UForm
     :schema="schema"
     :state="model"
-    class="h-full flex flex-col justify-between"
+    class="h-full flex flex-col space-y-6"
     @submit="onSubmit"
   >
-    <div class="space-y-4">
-      <UFormField label="Account name" name="account">
-        <UInput v-model="model.account" />
-      </UFormField>
+    <UFormField label="Account name" name="account">
+      <UInput v-model="model.account" />
+    </UFormField>
 
-      <UFormField v-if="!isUpdate" label="Secret key" name="key">
-        <UInput v-model="model.key" :type="show ? 'text' : 'password'">
-          <template #trailing>
-            <UButton
-              color="neutral"
-              variant="link"
-              size="sm"
-              :icon="show ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-              :aria-label="show ? 'Hide password' : 'Show password'"
-              :aria-pressed="show"
-              aria-controls="password"
-              @click="show = !show"
-            />
-          </template>
-        </UInput>
-      </UFormField>
-    </div>
+    <UFormField v-if="!isUpdate" label="Secret key" name="key">
+      <UInput v-model="model.key" :type="show ? 'text' : 'password'">
+        <template #trailing>
+          <UButton
+            color="neutral"
+            variant="link"
+            size="sm"
+            :icon="show ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+            :aria-label="show ? 'Hide password' : 'Show password'"
+            :aria-pressed="show"
+            aria-controls="password"
+            @click="show = !show"
+          />
+        </template>
+      </UInput>
+    </UFormField>
 
-    <UButton type="submit" class="w-full justify-center"> Submit </UButton>
+    <UButton type="submit" class="justify-center"> Submit </UButton>
   </UForm>
 </template>
 
