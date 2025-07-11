@@ -1,5 +1,5 @@
 <template>
-  <UModal v-model:open="open" :close="false">
+  <UModal v-model:open="open" :close="false" :ui="{ content: 'size-64' }">
     <template #title>
       <div>QR Code</div>
     </template>

@@ -7,7 +7,15 @@ export default defineAppConfig({
     input: {
       slots: {
         root: "w-full",
+        base: "rounded-full shadow-sm dark:shadow-gray-800",
       },
+    },
+    formField: {
+      slots: {
+        label: 'px-2',
+        container: 'mt-2',
+        error: 'px-2'
+      }
     },
     select: {
       slots: {
@@ -54,7 +62,7 @@ export default defineAppConfig({
     },
     toast: {
       slots: {
-        root: "rounded-full w-24 mx-auto text-center p-3",
+        root: "rounded-full overflow-clip glass w-24 mx-auto text-center p-3",
       },
     },
     popover: {

@@ -10,15 +10,19 @@
         <slot />
         <div class="sticky bottom-0 flex justify-between items-center">
           <div>
-            <UButton
-              icon="i-iconamoon-arrow-left-2"
-              size="xl"
-              class="glass rounded-full p-2.5"
-              :ui="{
-                leadingIcon: 'size-8 text-default',
-              }"
-              to="/"
-            />
+            <Transition name="back">
+              <div v-if="$route.name !== 'index'">
+                <UButton
+                  icon="i-iconamoon-arrow-left-2"
+                  size="xl"
+                  class="glass rounded-full p-2.5"
+                  :ui="{
+                    leadingIcon: 'size-8 text-default',
+                  }"
+                  to="/"
+                />
+              </div>
+            </Transition>
           </div>
           <UNavigationMenu :items="items" />
         </div>

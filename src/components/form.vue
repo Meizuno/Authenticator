@@ -2,31 +2,52 @@
   <UForm
     :schema="schema"
     :state="model"
-    class="h-full flex flex-col space-y-6"
+    class="h-full flex flex-col justify-between py-2"
     @submit="onSubmit"
   >
-    <UFormField label="Account name" name="account">
-      <UInput v-model="model.account" />
-    </UFormField>
+    <div class="space-y-4">
+      <UFormField label="Name" name="account" required size="xl">
+        <UInput v-model="model.account" size="xl" />
+      </UFormField>
 
-    <UFormField v-if="!isUpdate" label="Secret key" name="key">
-      <UInput v-model="model.key" :type="show ? 'text' : 'password'">
-        <template #trailing>
-          <UButton
-            color="neutral"
-            variant="link"
-            size="sm"
-            :icon="show ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-            :aria-label="show ? 'Hide password' : 'Show password'"
-            :aria-pressed="show"
-            aria-controls="password"
-            @click="show = !show"
-          />
-        </template>
-      </UInput>
-    </UFormField>
-
-    <UButton type="submit" class="justify-center"> Submit </UButton>
+      <UFormField
+        v-if="!isUpdate"
+        label="Secret key"
+        name="key"
+        required
+        size="xl"
+      >
+        <UInput
+          v-model="model.key"
+          size="xl"
+          :type="show ? 'text' : 'password'"
+        >
+          <template #trailing>
+            <UButton
+              color="neutral"
+              variant="link"
+              size="sm"
+              :icon="show ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+              :aria-label="show ? 'Hide password' : 'Show password'"
+              :aria-pressed="show"
+              aria-controls="password"
+              @click="show = !show"
+            />
+          </template>
+        </UInput>
+      </UFormField>
+    </div>
+    <div class="flex justify-end">
+      <UButton
+        type="submit"
+        size="xl"
+        :ui="{
+          base: 'glass text-default text-bold rounded-full w-1/2 justify-center',
+        }"
+      >
+        Submit
+      </UButton>
+    </div>
   </UForm>
 </template>
 

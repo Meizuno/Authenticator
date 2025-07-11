@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-full">
+  <div class="h-full w-full rounded-2xl overflow-clip">
     <qrcode-stream
       :formats="['qr_code']"
       @error="onError"
