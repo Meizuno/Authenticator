@@ -6,7 +6,7 @@ export default defineAppConfig({
     },
     input: {
       slots: {
-        root: "w-full",
+        root: "rounded-full overflow-clip w-full",
         base: "rounded-full shadow-sm dark:shadow-gray-800",
       },
     },
