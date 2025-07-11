@@ -1,5 +1,5 @@
 {
-  "name": "authenticator",
+  "name": "otp-genie",
   "private": true,
   "type": "module",
   "scripts": {
