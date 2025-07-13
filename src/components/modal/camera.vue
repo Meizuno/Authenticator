@@ -24,5 +24,6 @@ defineProps({
 
 const confirm = () => {
   emit("confirm");
+  navigateTo("/");
 };
 </script>

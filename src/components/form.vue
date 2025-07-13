@@ -2,7 +2,7 @@
   <UForm
     :schema="schema"
     :state="model"
-    class="h-full flex flex-col justify-between py-2"
+    class="h-full flex flex-col justify-between"
     @submit="onSubmit"
   >
     <div class="space-y-4">

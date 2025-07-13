@@ -1,6 +1,6 @@
 <template>
   <div class="h-full relative flex flex-col">
-    <div v-if="codes.length" class="flex-1">
+    <div v-if="codes.length" class="flex-1 space-y-4">
       <div v-for="code in codes" :key="code.id" class="flex flex-col gap-4">
         <ItemCard :code="code" />
         <USeparator />

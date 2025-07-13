@@ -15,6 +15,7 @@ export default defineNuxtConfig({
         },
       ],
     },
+    pageTransition: { name: "page", mode: "out-in" },
   },
 
   modules: ["@nuxt/eslint", "@nuxt/ui"],

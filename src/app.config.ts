@@ -4,6 +4,9 @@ export default defineAppConfig({
       primary: "blue",
       neutral: "zinc",
     },
+    container: {
+      base: "px-0 sm:px-0 lg:px-0 pb-[var(--ion-safe-area-bottom)] pt-[var(--ion-safe-area-top)]"
+    },
     input: {
       slots: {
         root: "rounded-full overflow-clip w-full",
