@@ -58,3 +58,9 @@
   opacity: 0;
   filter: blur(1rem);
 }
+
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  height: 100svh;
+}
