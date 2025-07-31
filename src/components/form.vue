@@ -10,7 +10,13 @@
         <UInput v-model="model.account" />
       </UFormField>
 
-      <UFormField v-if="!isUpdate" label="Secret key" name="key" required size="xl">
+      <UFormField
+        v-if="!isUpdate"
+        label="Secret key"
+        name="key"
+        required
+        size="xl"
+      >
         <UInput
           v-model="model.key"
           :color="color"
@@ -36,13 +42,14 @@
       </UFormField>
 
       <UProgress
+        v-if="!isUpdate"
         :color="color"
         :model-value="score"
         :max="4"
         size="sm"
       />
 
-      <ul class="space-y-1" aria-label="Password requirements">
+      <ul v-if="!isUpdate" class="space-y-1" aria-label="Password requirements">
         <li
           v-for="(req, index) in strength"
           :key="index"
@@ -132,7 +139,7 @@ const validate = (state: Code): FormError[] => {
   if (strength.value.length > 0) {
     const isInvalid =
       strength.value.filter((req) => req.met === false).length > 0;
-    
+
     if (isInvalid)
       errors.push({ name: "key", message: "Wrong format base32 key" });
   }
