@@ -10,12 +10,12 @@ export const useCodeState = () => {
   };
 
   const addCode = async (code: Code) => {
-    await db.codes.add({
+    const id = await db.codes.add({
       service: code.service,
       account: code.account,
       key: code.key,
     });
-    codes.value.push(code);
+    codes.value.push({ ...code, id });
   };
 
   const updateCode = async (id: number, code: Code) => {

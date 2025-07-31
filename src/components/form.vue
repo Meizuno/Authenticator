@@ -137,7 +137,6 @@ const validate = (state: Code): FormError[] => {
       errors.push({ name: "key", message: "Wrong format base32 key" });
   }
 
-
   return errors;
 };
 
