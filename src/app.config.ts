@@ -17,7 +17,7 @@ export default defineAppConfig({
       slots: {
         label: 'px-2',
         container: 'mt-2',
-        error: 'px-2'
+        error: 'hidden'
       }
     },
     select: {
